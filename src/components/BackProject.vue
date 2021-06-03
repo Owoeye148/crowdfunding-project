@@ -156,7 +156,7 @@ export default {
 
 <style scoped>
 .show_t_modal {
-    position: absolute;
+    position: fixed;
     z-index: 4;
 }
 .b_modal {
