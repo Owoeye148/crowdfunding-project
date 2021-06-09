@@ -49,11 +49,11 @@
       <div class="main-backed">
         <div id="fig-backed">
           <div class="fig-backed-item">
-            <div class="fig">${{ percent_baked }}</div>
+            <div class="fig">${{ percent_baked.toLocaleString("en") }}</div>
             <div class="fiw">of $100,000 backed</div>
           </div>
           <div class="fig-backed-item">
-            <div class="fig">{{ total_backers }}</div>
+            <div class="fig">{{ total_backers.toLocaleString("en") }}</div>
             <div class="fiw">total backers</div>
           </div>
           <div class="fig-backed-item">
@@ -147,7 +147,7 @@ label.logo {
   color: white;
   font-size: 20px;
   line-height: 80px;
-  padding: 0 170px;
+  padding: 0 17px;
   font-weight: bold;
 }
 nav ul {

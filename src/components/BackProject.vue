@@ -23,7 +23,7 @@
                     </div>
                     <div class="hfg">
                         <div class="hfg-inner">
-                            <input type="radio" id="bambo-st" name="pledge" v-model="bambooStand_pledge">
+                            <input type="radio" id="bambo-st" name="pledge" @click="toggleBS_pledge()">
                             <label for="bambo-st">
                                 <div class="plgp"> 
                                     <div id="bsp">
@@ -39,7 +39,7 @@
                                 </p>
                             </label>
                             <div class="lft-m">101<small>left</small></div>
-                            <div v-if="bambooStand_pledge" class="eyp">
+                            <div v-if="!bs_pledgeShow" class="eyp">
                                 <div>
                                     <p>Enter your pledge</p>
                                 </div>
@@ -52,12 +52,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div v-else></div>
                         </div>
                     </div>
                     <div class="hfg">
                         <div class="hfg-inner">
-                        <input type="radio" id="black-es" name="pledge" v-model="blackEdition_pledge">
+                        <input type="radio" id="black-es" name="pledge" @click="toggleBS_pledge()">
                             <label for="black-es">
                                 <div class="plgp"> 
                                     <div id="bsp">
@@ -72,7 +71,7 @@
                                 </p>
                             </label>
                             <div class="lft-m">64<small>left</small></div>
-                            <div v-if="blackEdition_pledge" class="eyp">
+                            <div v-if="!bs_pledgeHide" class="eyp">
                                 <div>
                                     <p>Enter your pledge</p>
                                 </div>
@@ -85,7 +84,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div v-else></div>
                         </div>
                     </div>
                     <div class="hfg">
@@ -129,8 +127,10 @@ export default {
             bamboo_stand: false,
             black_edition: false,
             open_t_modal: false,
-            bambooStand_pledge: false,
-            blackEdition_pledge: false
+            bs_pledge: false,
+            bs_pledgeShow: true,
+            bs_pledgeHide: false
+
         }
     },
     methods: {
@@ -140,17 +140,22 @@ export default {
         close_b_modal() {
             this.close = !this.close
         },
-        show_bambooStand_pledge() {
-            this.bambooStand_pledge = !this.bambooStand_pledge
-        },
-        show_blackEdition_pledge() {
-            this.blackEdition_pledge = !this.blackEdition_pledge
+        show_div() {
+            console.log('show div')
+            return this.bs_pledge
         },
         open_thanks_modal() {
             this.open_t_modal = !this.open_t_modal
+
         },
+        toggleBS_pledge() {
+            this.bs_pledgeShow = !this.bs_pledgeShow
+            this.bs_pledgeHide = !this.bs_pledgeHide
+        }
+        
 
     }
+
 }
 </script>
 
@@ -186,9 +191,6 @@ export default {
     width: 90%;
     margin: 20px auto;
 }
-/*input[type="radio"] + label {
-    display: inline-block;
-}*/
 .hfg {
     display: flex;
     flex-direction: row;
@@ -380,13 +382,4 @@ small {
     background: none;
     color: white;
 }
-/*.eyp::before {
-    content: "";
-    position: absolute;
-    top: 60%;
-    height: 2px;
-    width: 43.8%;
-    left: 27.5%;
-    background: hsl(0, 8%, 69%);
-}*/
 </style>
