@@ -44,7 +44,7 @@
                                     <p>Enter your pledge</p>
                                 </div>
                                 <div class="inp-no">
-                                    <form @submit="open_thanks_modal">
+                                    <form @submit="open_thanks_modal()">
                                         <div class="ent">
                                             $<input id="in-a" type="number" required min="25">
                                         </div>
@@ -116,7 +116,9 @@
             </div>
         </div>
     </div>
-    <ThanksModal v-if="open_t_modal"/>
+    <div v-if="open_t_modal">
+        <ThanksModal />
+    </div>
 </template>
 
 <script>
@@ -127,10 +129,7 @@ export default {
     },
     data() {
         return {
-            locks: false,
             close_: true,
-            bamboo_stand: false,
-            black_edition: false,
             open_t_modal: false,
             bs_pledge: false,
             bs_pledgeShow: true,
@@ -139,14 +138,10 @@ export default {
         }
     },
     methods: {
-        closeSide(){
-            this.locks = !this.locks
-        },
         close_b_modal() {
-            this.close = !this.close
+            this.close_ = !this.close_
         },
         open_thanks_modal() {
-            console.log('Thanks modal open')
             this.open_t_modal = true
 
         },

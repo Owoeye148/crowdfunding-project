@@ -92,7 +92,6 @@ export default {
       days_left: 56,
       max_backable: 100000,
       min_backable: 0,
-      close: true,
       modal: true,
       open: false
     } 
