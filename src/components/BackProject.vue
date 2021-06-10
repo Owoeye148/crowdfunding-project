@@ -1,6 +1,6 @@
 <template>
-    <ThanksModal v-if="open_t_modal" class="show_t_modal"/>
-    <div v-if="close" class="b_modal">
+    
+    <div v-if="close_" class="b_modal">
         <div id="btpj">
             <div class="btp-inner">
                 <label @click="close_b_modal" for="close" class="closebtn">
@@ -44,12 +44,14 @@
                                     <p>Enter your pledge</p>
                                 </div>
                                 <div class="inp-no">
-                                    <div class="ent">
-                                        $<input id="in-a" type="number" required min="25">
-                                    </div>
-                                    <div class="cont">
-                                        <button type="button" @click="open_thanks_modal">Continue</button>
-                                    </div>
+                                    <form @submit="open_thanks_modal">
+                                        <div class="ent">
+                                            $<input id="in-a" type="number" required min="25">
+                                        </div>
+                                        <div class="cont">
+                                            <button id="submit_pledge" type="submit">Continue</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -76,12 +78,14 @@
                                     <p>Enter your pledge</p>
                                 </div>
                                 <div class="inp-no">
-                                    <div class="ent">
-                                        $<input id="in-a" type="number" required min="75">
-                                    </div>
-                                    <div class="cont">
-                                        <button type="button" @click="open_thanks_modal">Continue</button>
-                                    </div>
+                                    <form v-on:submit="open_thanks_modal()">
+                                        <div class="ent">
+                                            $<input id="in-a" type="number" required min="75">
+                                        </div>
+                                        <div class="cont">
+                                            <button id="submit_pledge" type="submit">Continue</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -112,6 +116,7 @@
             </div>
         </div>
     </div>
+    <ThanksModal v-if="open_t_modal"/>
 </template>
 
 <script>
@@ -123,7 +128,7 @@ export default {
     data() {
         return {
             locks: false,
-            close: true,
+            close_: true,
             bamboo_stand: false,
             black_edition: false,
             open_t_modal: false,
@@ -140,12 +145,9 @@ export default {
         close_b_modal() {
             this.close = !this.close
         },
-        show_div() {
-            console.log('show div')
-            return this.bs_pledge
-        },
         open_thanks_modal() {
-            this.open_t_modal = !this.open_t_modal
+            console.log('Thanks modal open')
+            this.open_t_modal = true
 
         },
         toggleBS_pledge() {
@@ -160,10 +162,6 @@ export default {
 </script>
 
 <style scoped>
-.show_t_modal {
-    position: fixed;
-    z-index: 4;
-}
 .b_modal {
     display: flex;
     align-items: center;

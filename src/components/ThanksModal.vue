@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-if="close">
+  <div class="modal" v-if="!close">
       <div class="modal-container">
         <div class="modal_content">
             <div class="img-cont">
@@ -8,7 +8,7 @@
             <h5>Thanks For your support!</h5>
             <p>Your pledge brings us one step closer to sharing MasterCraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed</p>
             <div class="btn-cont">
-                <button @click="close_t_modal">Got it!</button>
+                <button type="button" @click="close_t_modal">Got it!</button>
             </div>
         </div>
       </div>
@@ -42,6 +42,7 @@ export default {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
+    z-index: 4;
 }
 .modal-container {
     display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <BackProject class="show_modal"  v-if="open" />
+    <BackProject  v-if="open" />
     <div id="nav">
       <nav>
         <input type="checkbox" id="toggle" />
@@ -32,7 +32,7 @@
         </div>
         <div class="back">
           <div id="btp">
-            <button @click="open_b_modal"  id="btp-button">Back this project</button>
+            <button type="button" @click="open_b_modal"  id="btp-button">Back this project</button>
           </div>
           <div></div>
           <div class="book">
@@ -95,7 +95,7 @@ export default {
       close: true,
       modal: true,
       open: false
-    }
+    } 
   },
   methods: {
     open_b_modal(){
@@ -111,10 +111,6 @@ export default {
   margin: 0;
   text-decoration: none;
   list-style: none;
-}
-.show_modal {
-  position: fixed;
-  z-index: 3;
 }
 .blk-n {
   display: flex;
@@ -359,6 +355,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#btp:hover {
+  background: hsl(176, 53%, 42%);
 }
 #mc {
   margin-top: -7%;
