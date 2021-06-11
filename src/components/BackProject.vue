@@ -1,5 +1,4 @@
 <template>
-    
     <div v-if="close_" class="b_modal">
         <div id="btpj">
             <div class="btp-inner">
@@ -8,7 +7,7 @@
                 </label>
                 <h3>Back this project</h3>
                 <p id="want">Want to support us in bringing MasterCraft Bamboo Monitor Riser out in the world?</p>
-                <form action="">
+                <form @submit="close_b_modal()">
                     <div class="hfg">
                         <div class="hfg-inner">
                             <input type="radio" id="pwnr" name="pledge">
@@ -43,16 +42,14 @@
                                 <div>
                                     <p>Enter your pledge</p>
                                 </div>
-                                <div class="inp-no">
-                                    <form @submit="open_thanks_modal()">
-                                        <div class="ent">
-                                            $<input id="in-a" type="number" required min="25">
-                                        </div>
-                                        <div class="cont">
-                                            <button id="submit_pledge" type="submit">Continue</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                <form class="enter_pledge" @submit.prevent="open_thanks_modal()">
+                                    <div class="ent">
+                                        $<input id="in-a" type="number" required min="25">
+                                    </div>
+                                    <div class="cont">
+                                        <button id="submit_pledge" type="submit" title="Click Here to Submit your pledge">Continue</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -77,16 +74,14 @@
                                 <div>
                                     <p>Enter your pledge</p>
                                 </div>
-                                <div class="inp-no">
-                                    <form v-on:submit="open_thanks_modal()">
-                                        <div class="ent">
-                                            $<input id="in-a" type="number" required min="75">
-                                        </div>
-                                        <div class="cont">
-                                            <button id="submit_pledge" type="submit">Continue</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                <form class="enter_pledge" @submit.prevent="open_thanks_modal()">
+                                    <div class="ent">
+                                        $<input id="in-a" type="number" required min="75">
+                                    </div>
+                                    <div class="cont">
+                                        <button id="submit_pledge" type="submit" title="Click Here to Submit your pledge">Continue</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -138,12 +133,13 @@ export default {
         }
     },
     methods: {
-        close_b_modal() {
+        
+        open_thanks_modal() {
+            this.open_t_modal = !this.open_t_modal
             this.close_ = !this.close_
         },
-        open_thanks_modal() {
-            this.open_t_modal = true
-
+        close_b_modal() {
+            this.close_ = !this.close_
         },
         toggleBS_pledge() {
             this.bs_pledgeShow = !this.bs_pledgeShow
@@ -326,11 +322,14 @@ small {
     div.cont {
         width: 80%;
     }
-    div.inp-no {
-        display: grid;
-        justify-items: center;
-        grid-template-columns: 50% 50%;
+    .enter_pledge {
         width: 100%;
+    }
+    .ent {
+        width: 50%;
+    }
+    .cont {
+        width: 10%;
     }
 }
 .eyp {
@@ -345,9 +344,9 @@ small {
     padding-bottom: 0.5;
     margin: 15px -1.3em;
 }
-.inp-no {
-    display: grid;
-    grid-template-columns: 50% 50%;
+.enter_pledge {
+    display: flex;
+    flex-direction: row;
 }
 #in-a {
     width: 30px;
@@ -356,11 +355,12 @@ small {
 .ent {
     display: flex;
     border: 1px solid hsl(176, 50%, 47%);
-    width: 80%;
+    width: 50%;
     height: 28px;
     border-radius: 50px;
     align-items: center;
     justify-content: center;
+    margin: auto 10px;
 }
 .cont {
     display: flex;
@@ -368,7 +368,7 @@ small {
     justify-content: center;
     background: hsl(176, 72%, 28%);
     border-radius: 50px;
-    width: 80%;
+    width: 50%;
 }
 .cont button {
     border-style: none;

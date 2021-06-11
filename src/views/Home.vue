@@ -142,7 +142,7 @@ label.logo {
   color: white;
   font-size: 20px;
   line-height: 80px;
-  padding: 0 17px;
+  padding: 0 100px;
   font-weight: bold;
 }
 nav ul {

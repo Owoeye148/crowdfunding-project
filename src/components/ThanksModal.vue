@@ -17,9 +17,10 @@
 
 <script>
 export default {
+    name: "ThanksModal",
     data() {
         return {
-            close:  true
+            close:  true,
         }
     },
     methods: {
