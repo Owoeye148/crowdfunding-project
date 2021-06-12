@@ -215,18 +215,23 @@ nuxt-link {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 55vh;
+  height: 45vh;
   position: relative;
   display: flex;
   }
   
-  .nav-menu {
+  /*-moz-animation-delay: ;.nav-menu {
     box-sizing: border-box;
-  }
-  .nav-menu {
+  }*/
+  .nav-menu:first-of-type, .nav-menu:nth-of-type(2) {
     position: relative;
+    border-bottom: 1px solid rgb(141, 137, 137);
+    width: 190%;
+    margin-left: 0;
+    padding-left: 15px;
+  
   }
-  .nav-menu::after {
+  /*.nav-menu::after {
     content: "";
     top: 100%;
     position: absolute;
@@ -235,11 +240,17 @@ nuxt-link {
     background: hsl(0, 8%, 69%);
     right: 2%;
     left: -17%;
-  }
+  }*/
   .nav-menu:last-of-type::after{
     display: none;
   }
- 
+  .master-craft {
+    width: 80%;
+    margin-top: -10%;
+  }
+  div.main-backed {
+    width: 80%;
+  }
   #mc {
     top: -4;
   }

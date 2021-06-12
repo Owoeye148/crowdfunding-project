@@ -150,6 +150,9 @@ span {
     margin-left: 10px;
 }
 @media (max-width: 900px) {
+    .abt-p {
+        width: 80%;
+    }
     .bst, .srw {
         display: block;
         align-items: left;
