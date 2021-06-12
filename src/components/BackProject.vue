@@ -20,7 +20,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="hfg">
+                    <div class="hfg"> 
                         <div class="hfg-inner">
                             <input type="radio" id="bambo-st" name="pledge" @click="toggleBS_pledge()">
                             <label for="bambo-st">
