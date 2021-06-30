@@ -259,7 +259,7 @@ label {
 .closebtn {
     display: flex;
     font-size: 15px;
-    margin-left: 95%;
+    margin-left: 97%;
     margin-top: 0%;
 }
 small {
