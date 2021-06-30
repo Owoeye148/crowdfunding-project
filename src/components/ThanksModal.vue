@@ -87,8 +87,8 @@ button {
 }
 @media (max-width: 900px) {
     .modal-container {
-        width: 50%;
-        height: 60vh;
+        width: 80%;
+        height: auto;
     }
 }
 </style>
