@@ -49,7 +49,7 @@ export default {
     height: 30vh;
 }
 #close-icon {
-    margin-top: 6%;
+    margin-top: 8%;
     margin-left: 100%;
 }
 .logo {
