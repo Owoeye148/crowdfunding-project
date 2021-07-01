@@ -4,9 +4,9 @@
         <img @click="closeMenu()"  id="close-icon" src="../assets/img/icon-close-menu.svg" alt=""/>
         <div class="menu-container">
             <ul class="menu">
-                <li class="nav-menu"><nuxt-link>About</nuxt-link></li>
-                <li class="nav-menu"><nuxt-link>Discover</nuxt-link></li>
-                <li class="nav-menu"><nuxt-link>Get Started</nuxt-link></li>
+                <li class="nav-menu">About</li>
+                <li class="nav-menu">Discover</li>
+                <li class="nav-menu">Get Started</li>
             </ul>
         </div>
     </div>

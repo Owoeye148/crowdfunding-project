@@ -7,9 +7,9 @@
         <label class="logo">crowdfund</label>
         <img @click="openMenuModal()" v-if="menuIcon" id="menu-icon" src="../assets/img/icon-hamburger.svg" alt=""/>
         <ul class="menu">
-          <li class="nav-menu"><nuxt-link>About</nuxt-link></li>
-          <li class="nav-menu"><nuxt-link>Discover</nuxt-link></li>
-          <li class="nav-menu"><nuxt-link>Get Started</nuxt-link></li>
+          <li class="nav-menu">About</li>
+          <li class="nav-menu">Discover</li>
+          <li class="nav-menu">Get Started</li>
         </ul>
       </nav>
     </div>
