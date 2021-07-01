@@ -1,14 +1,11 @@
 <template>
   <div class="home">
-    <BackProject  v-if="open" />
+    <MenuModal v-if="menuModal" v-model:menuIcon.sync="menuIcon" v-model:menuModal.sync="menuModal" />
+    <BackProject v-if="open" />
     <div id="nav">
       <nav>
-        <input type="checkbox" id="toggle" />
-        <label for="toggle" class="togglebtn">
-          <i id="bars" class="fas fa-bars"></i>
-          <i id="close" class="fa fa-close"></i>
-        </label>
         <label class="logo">crowdfund</label>
+        <img @click="openMenuModal()" v-if="menuIcon" id="menu-icon" src="../assets/img/icon-hamburger.svg" alt=""/>
         <ul class="menu">
           <li class="nav-menu"><nuxt-link>About</nuxt-link></li>
           <li class="nav-menu"><nuxt-link>Discover</nuxt-link></li>
@@ -76,6 +73,7 @@
 
 <script>
 // @ is an alias to /src
+import MenuModal from '../components/MenuModal.vue'
 import AboutProject from "../components/AboutProject.vue"
 import BackProject from '../components/BackProject.vue'
 
@@ -83,7 +81,8 @@ export default {
   name: "Home",
   components: {
     AboutProject,
-    BackProject
+    BackProject,
+    MenuModal
   },
   data() {
     return {
@@ -93,12 +92,18 @@ export default {
       max_backable: 100000,
       min_backable: 0,
       modal: true,
-      open: false
+      open: false,
+      menuModal: false,
+      menuIcon: true
     } 
   },
   methods: {
     open_b_modal(){
       this.open = !this.open
+    },
+    openMenuModal() {
+      this.menuModal = !this.menuModal;
+      this.menuIcon = false
     }
   }
 }
@@ -119,7 +124,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 4;
 }
 .home {
   background-color: rgb(232, 222, 214);
@@ -145,9 +150,14 @@ label.logo {
   padding: 0 100px;
   font-weight: bold;
 }
+#menu-icon {
+  display: none;
+}
 nav ul {
   float: right;
   margin-right: 100px;
+  background-color: transparent;
+  display: inline-block;
 }
 nav ul li {
   display: inline-block;
@@ -174,7 +184,6 @@ nuxt-link {
   margin-right: auto;
   text-align: center;
   justify-content: center;
-  background-color: white;
   line-height: 30px;
   border-radius: 5px;
 }
@@ -188,18 +197,6 @@ nuxt-link {
   align-items: center;
   width: 90%;
   margin: 0 auto;
-}
-#toggle {
-  display: none;
-}
-#toggle + label.togglebtn {
-  font-size: 30px;
-  color: white;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-  display: none;
 }
 @media (max-width: 952px) {
   label.logo {
@@ -218,6 +215,12 @@ nuxt-link {
   height: 45vh;
   position: relative;
   display: flex;
+  }
+  #menu-icon {
+    position: absolute;
+    left: 90%;
+    top: 10%;
+    display: flex;
   }
   
   /*-moz-animation-delay: ;.nav-menu {
@@ -298,32 +301,7 @@ nuxt-link {
   .menu {
     display: none;
   }
-
-  #toggle + label.togglebtn {
-    display: inline-block;
-    background-color: transparent;
-  }
-  label.togglebtn i#close {
-    display: none;
-  }
-  #toggle:checked + label.togglebtn i#bars {
-    display: none;
-  }
-  #toggle:checked + label.togglebtn i#close {
-    display: block;
-    line-height: 80px;
-  }
-  #toggle:checked ~ .menu {
-    height: auto;
-    width: 50%;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    align-items: center;
-    justify-content: left;
-    background: white;
-    border-radius: 5px;
-    margin: 0 25%;
-  }
+    
 }
 #btp-button {
   color: white;
