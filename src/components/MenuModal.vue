@@ -73,4 +73,13 @@ ul li {
 ul li:hover {
     color: rgb(92, 86, 86);
 }
+.nav-menu:first-of-type, .nav-menu:nth-of-type(2) {
+    border-bottom: 1px solid rgb(233, 223, 223);
+    margin-left: -2.48em;
+    padding-left: 2em;
+}
+.nav-menu {
+    margin-left: -2.48em;
+    padding-left: 2em;
+}
 </style>
