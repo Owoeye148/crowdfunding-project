@@ -157,17 +157,14 @@ nav ul {
   float: right;
   margin-right: 100px;
   background-color: transparent;
-  display: inline-block;
 }
 nav ul li {
   display: inline-block;
   margin: 0 15px;
   align-items: center;
 }
-nav ul li nuxt-link {
+nav ul li {
   color: white;
-}
-nuxt-link {
   line-height: 80px;
 }
 .master-craft-cont {
